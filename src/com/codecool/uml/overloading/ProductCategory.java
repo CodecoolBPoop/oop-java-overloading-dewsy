@@ -10,7 +10,7 @@ public class ProductCategory {
     private String department;
     private String description;
 
-    public int setNewCategoryID() {
+    private int setNewCategoryID() {
         lastId += 1;
         return lastId;
     }

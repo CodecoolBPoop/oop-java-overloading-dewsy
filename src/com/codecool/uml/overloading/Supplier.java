@@ -1,14 +1,17 @@
 package com.codecool.uml.overloading;
 
+import java.util.List;
+
 public class Supplier {
 
-    private static int id = 0;
+    private int id;
+    private static int lastId = 0;
     private String name;
     private String description;
 
-    public int setNewSupplierID () {
-        id += 1;
-        return id;
+    private int setNewSupplierID () {
+        lastId += 1;
+        return lastId;
     }
 
     public int getId() {
@@ -29,5 +32,19 @@ public class Supplier {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Supplier() {
+        this.id = setNewSupplierID();
+    }
+
+    public Supplier(String name, String description) {
+        this.id = setNewSupplierID();
+        this.name = name;
+        this.description = description;
+    }
+
+    public List<Product> getProducts() {
+        return Product.getAllProductsBy(this);
     }
 }
