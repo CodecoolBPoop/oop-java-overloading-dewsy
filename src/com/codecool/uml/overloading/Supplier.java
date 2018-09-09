@@ -47,4 +47,9 @@ public class Supplier {
     public List<Product> getProducts() {
         return Product.getAllProductsBy(this);
     }
+
+    public String toString() {
+        return String.format("id: %s, name: %s, description: %s", this.id, this.name, this.description);
+    }
+
 }
