@@ -14,7 +14,7 @@ public class FeaturedProductCategory extends ProductCategory {
 
     @Override
     public String toString() {
-        return String.format("FeaturedProductCategory id: %s, name: %s, department: %s, descripton: %s", super.getId(), super.getName(), super.getDepartment(), super.getDescription());
+        return String.format("FeaturedProductCategory id: %s, name: %s, department: %s, descripton: %s, startdate: %s, enddate: %s", super.getId(), super.getName(), super.getDepartment(), super.getDescription(), this.startDate, this.endDate);
     }
 
 }
