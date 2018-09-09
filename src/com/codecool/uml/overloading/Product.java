@@ -16,7 +16,7 @@ public class Product {
     private static List<Product> productList;
 
 
-    public int setNewProductID () {
+    private int setNewProductID () {
         lastId += 1;
         return lastId;
     }
@@ -78,7 +78,7 @@ public class Product {
         productList.add(this);
     }
 
-    public List<Product> getAllProductsBy(ProductCategory productCategory) {
+    public static List<Product> getAllProductsBy(ProductCategory productCategory) {
         List<Product> listByCategory = new ArrayList<>();
         for (Product product : productList) {
             if (product.productCategory.equals(productCategory)) {
@@ -88,7 +88,7 @@ public class Product {
         return listByCategory;
     }
 
-    public List<Product> getAllProductsBy(Supplier supplier) {
+    public static List<Product> getAllProductsBy(Supplier supplier) {
         List<Product> listBySupplier = new ArrayList<>();
         for (Product product : productList) {
             if (product.supplier.equals(supplier)) {

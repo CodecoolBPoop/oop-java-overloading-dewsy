@@ -1,5 +1,7 @@
 package com.codecool.uml.overloading;
 
+import java.util.List;
+
 public class ProductCategory {
 
     private int id;
@@ -51,5 +53,13 @@ public class ProductCategory {
 
     public ProductCategory() {
         this.id = setNewCategoryID();
+    }
+
+    public List<Product> getProducts() {
+        return Product.getAllProductsBy(this);
+    }
+
+    public String toString() {
+        return String.format("id: %s, name: %s, department: %s, descripton: %s", this.id, this.name, this.department, this.description);
     }
 }
