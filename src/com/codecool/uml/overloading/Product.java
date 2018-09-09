@@ -3,17 +3,21 @@ package com.codecool.uml.overloading;
 import java.util.ArrayList;
 import java.util.Currency;
 import java.util.List;
+import java.util.Locale;
 
 public class Product {
 
+    private Currency GDP = Currency.getInstance(Locale.UK);
+    private ProductCategory defaultCategory = new ProductCategory("deault name", "default deparment", "default description");
+    private Supplier defaultSupplier = new Supplier("default supplier", "default description");
     private int id;
     private static int lastId = 0;
-    private String name;
-    private float defaultPrice;
-    private Currency defaultCurrency;
-    private ProductCategory productCategory;
-    private Supplier supplier;
-    private static List<Product> productList;
+    private String name = "defaultname";
+    private float defaultPrice = 1;
+    private Currency defaultCurrency = GDP;
+    private ProductCategory productCategory = defaultCategory;
+    private Supplier supplier = defaultSupplier;
+    private static List<Product> productList = new ArrayList<Product>();
 
 
     private int setNewProductID () {
@@ -65,11 +69,13 @@ public class Product {
         this.supplier = supplier;
     }
 
-    public Product(String name, float defaultPrice, Currency defaultCurrency) {
+    public Product(String name, float defaultPrice, Currency defaultCurrency, Supplier supplier, ProductCategory productCategory) {
         id = setNewProductID();
         this.name = name;
         this.defaultPrice = defaultPrice;
         this.defaultCurrency = defaultCurrency;
+        this.supplier = supplier;
+        this.productCategory = productCategory;
         productList.add(this);
     }
 
