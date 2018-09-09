@@ -1,5 +1,6 @@
 package com.codecool.uml.overloading;
 
+import java.util.ArrayList;
 import java.util.Currency;
 import java.util.Date;
 import java.util.List;
@@ -9,6 +10,21 @@ public class overloading {
     public static int productID = 0;
     public static int categoryID = 0;
     public static int supplierID = 0;
+
+    public int setnewProductID () {
+        productID += 1;
+        return productID;
+    }
+
+    public int setnewCategoryID () {
+        categoryID += 1;
+        return categoryID;
+    }
+
+    public int setNewSupplierID () {
+        supplierID += 1;
+        return supplierID;
+    }
 
 
 
@@ -67,6 +83,43 @@ public class overloading {
             this.supplier = supplier;
         }
 
+        public Product(String name, float defaultPrice, Currency defaultCurrency) {
+            this.id = setnewProductID();
+            this.name = name;
+            this.defaultPrice = defaultPrice;
+            this.defaultCurrency = defaultCurrency;
+            productList.add(this);
+        }
+
+        public Product() {
+            this.id = setnewProductID();
+            productList.add(this);
+        }
+
+        public List<Product> getAllProductsBy(ProductCategory productCategory) {
+            List<Product> listByCategory = new ArrayList<>();
+            for (Product product : productList) {
+                if (product.productCategory.equals(productCategory)) {
+                    listByCategory.add(product);
+                }
+            }
+            return listByCategory;
+        }
+
+        public List<Product> getAllProductsBy(Supplier supplier) {
+            List<Product> listBySupplier = new ArrayList<>();
+            for (Product product : productList) {
+                if (product.supplier.equals(supplier)) {
+                    listBySupplier.add(product);
+                }
+            }
+            return listBySupplier;
+        }
+
+        public String toString() {
+            return String.format("id: %s, name: %s, defaultPrice: %s", this.id, this.name, this.defaultPrice);
+        }
+
     }
 
     public class ProductCategory {
@@ -105,6 +158,8 @@ public class overloading {
             this.description = description;
         }
     }
+
+
     public class Supplier {
 
 
